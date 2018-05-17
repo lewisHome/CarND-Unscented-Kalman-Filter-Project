@@ -24,16 +24,45 @@ public:
 
   ///* state vector: [pos1 pos2 vel_abs yaw_angle yaw_rate] in SI units and rad
   VectorXd x_;
+  
+  ///* augmented state vector - not sre if i need this but its here for now
+  VectorXd x_aug_;
 
   ///* state covariance matrix
   MatrixXd P_;
+  
+  ///*augmented covarience matrix - again not sure if i need this but its here for now
+  MatrixXd P_aug_;
+  
+  ///predicted augmented sigma points - again not sure if i need this but is here for now
+  MatrixXd Xsig_aug_;
 
   ///* predicted sigma points matrix
   MatrixXd Xsig_pred_;
 
   ///* time when the state is true, in us
   long long time_us_;
-
+  long previous_t_;
+  double delta_t;
+  
+  ///*set radar measurement dims
+  int n_z_;
+  
+  ///*matrix for sigma points in radar measurement space
+  MatrixXd Zsig;
+  
+  ///*Matrix for predicted sigma points in measurement space
+  VectorXd z_pred;
+  
+  ///*S Matrix
+  MatrixXd S;
+  
+  ///* R Matrix
+  MatrixXd Rrad;
+  ///* R Matrix
+  MatrixXd Rlas;
+  // H matrix for laser
+  MatrixXd H_;
   ///* Process noise standard deviation longitudinal acceleration in m/s^2
   double std_a_;
 
@@ -66,7 +95,18 @@ public:
 
   ///* Sigma point spreading parameter
   double lambda_;
+  
+  ///*tuning parameters
+  double NIS_laser;
+  double NIS_radar;  
+  float radar_iteration;
+  float laser_iteration;
+  float radar_NIS_cnt;
+  float laser_NIS_cnt;
+  float radar_chi2;
+  float laser_chi2;
 
+  ///*
 
   /**
    * Constructor
