@@ -47,6 +47,7 @@ for instructions and the project rubric.
 
 I used the Normalised Innovation Squared technique to tune my Kalman Filter. By adjusting the process noise parameters and the initialisation values I aimed for a chi squared value as close to 95% as possible.
 ####Normalised Innovation Squared
+
 Laser | Radar
 --------|--------
  ![](Images/laser_NIS.png) | ![](Images/radar_NIS.png) 
