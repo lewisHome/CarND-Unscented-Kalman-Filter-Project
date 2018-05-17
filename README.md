@@ -49,7 +49,7 @@ I used the Normalised Innovation Squared technique to tune my Kalman Filter. By 
 ####Normalised Innovation Squared
 Laser | Radar
 --------|--------
-![](Images/laser_NIS.png) |![](Images/radar_NIS.png) 
+ ![](Images/laser_NIS.png) | ![](Images/radar_NIS.png) 
 
 ### Plotted Results
 Below are the results for the final tuned model. As expected the results are significantly better when utlising both radar and laser measurements. When only using the laser or the radar to update the model there is a loss in accuracy of the speed and position.
